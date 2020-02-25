@@ -1,0 +1,26 @@
+class RacquetsController < ApplicationController
+  def index
+    @racquets = Racquet.all
+  end
+
+  def new
+    @racquet = Racquet.new
+  end
+
+  def create
+    racquet = Racquet.build(racquet_params)
+    
+    if racquet.save
+      flash[:success] = "Racquet saved!"
+    else
+      flash[:danger] = racquet.errors.full_messages
+    end
+
+    redirect_to new_racquet_path
+  end
+
+  private
+  def racquet_params
+    params.require(:racquet).permit(:brand, :model, :weight, :dynamic_weight, :balance)
+  end
+end
