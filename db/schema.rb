@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_014311) do
+ActiveRecord::Schema.define(version: 2020_02_25_065933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 2020_02_25_014311) do
     t.string "brand"
     t.string "model"
     t.integer "weight"
-    t.integer "dynamic_weight"
     t.string "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "important_notes"
   end
 
 end

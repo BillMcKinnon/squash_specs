@@ -8,7 +8,7 @@ class RacquetsController < ApplicationController
   end
 
   def create
-    racquet = Racquet.build(racquet_params)
+    racquet = Racquet.new(racquet_params)
     
     if racquet.save
       flash[:success] = "Racquet saved!"
@@ -21,6 +21,6 @@ class RacquetsController < ApplicationController
 
   private
   def racquet_params
-    params.require(:racquet).permit(:brand, :model, :weight, :dynamic_weight, :balance)
+    params.require(:racquet).permit(:brand, :model, :weight, :balance, :important_notes)
   end
 end

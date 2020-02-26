@@ -1,1 +1,18 @@
-%h1 Create New Racquet Record
+%h1 New Racquet Entry
+= form_for :racquet, url: racquets_path do |f|
+  = f.label :brand, "Brand"
+  = f.select :brand, options_for_select([['Black Knight', 'black knight'], ['Dunlop', 'dunlop'], ['Eye Rackets', 'eye rackets'], ['Harrow', 'harrow'], ['Head', 'head'], ['Karakal', 'karakal'], ['Oliver', 'oliver'], ['Prince', 'prince'], ['Salming', 'salming'], ['Tecnifibre', 'tecnifibre'], ['Unsquashable', 'unsquashable'], ['Wilson', 'wilson'], ['Xamsa', 'xamsa']])
+
+  = f.label :model, "Model"
+  = f.text_field :model
+
+  = f.label :weight, "Weight"
+  = f.number_field :weight
+
+  = f.label :balance, "Balance"
+  = f.select :balance, options_for_select([['Head Heavy', 'Head Heavy'], ['Even', 'Even'], ['Head Light', 'Head Light']])
+
+  = f.label :important_notes, "Important Notes"
+  = f.text_field :important_notes
+
+  = f.submit
