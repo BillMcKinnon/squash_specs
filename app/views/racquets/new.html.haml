@@ -1,7 +1,7 @@
 %h1 New Racquet Entry
 = form_for :racquet, url: racquets_path do |f|
   = f.label :brand, "Brand"
-  = f.select :brand, options_for_select([['Black Knight', 'black knight'], ['Dunlop', 'dunlop'], ['Eye Rackets', 'eye rackets'], ['Harrow', 'harrow'], ['Head', 'head'], ['Karakal', 'karakal'], ['Oliver', 'oliver'], ['Prince', 'prince'], ['Salming', 'salming'], ['Tecnifibre', 'tecnifibre'], ['Unsquashable', 'unsquashable'], ['Wilson', 'wilson'], ['Xamsa', 'xamsa']])
+  = f.select :brand, options_for_select([['Black Knight', 'Black Knight'], ['Dunlop', 'Dunlop'], ['Eye Rackets', 'Eye rackets'], ['Harrow', 'Harrow'], ['Head', 'Head'], ['Karakal', 'Karakal'], ['Oliver', 'Oliver'], ['Prince', 'Prince'], ['Salming', 'Salming'], ['Tecnifibre', 'Tecnifibre'], ['Unsquashable', 'Unsquashable'], ['Wilson', 'Wilson'], ['Xamsa', 'Xamsa']])
 
   = f.label :model, "Model"
   = f.text_field :model
@@ -14,5 +14,8 @@
 
   = f.label :important_notes, "Important Notes"
   = f.text_field :important_notes
+
+  = f.label :photo, "Photo"
+  = f.text_field :photo
 
   = f.submit

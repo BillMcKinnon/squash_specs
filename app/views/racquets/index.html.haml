@@ -1,6 +1,15 @@
 %h1 Squash Specs
 = link_to "New Racquet", new_racquet_path
 
-%ul
-  - @racquets.each do |racquet|
-    %li= racquet.display_description
+.container
+  .row
+    - @racquets.each do |racquet|
+      .col-3.racquet-card
+        %ul
+          <!-- = image_tag(racquet.photo, alt: "picture of #{racquet.photo}") -->
+          %li= racquet.brand
+          %li= racquet.model
+          %li= "Weight: #{racquet.weight} g"
+          %li= "Balance: #{racquet.balance}"
+          - if racquet.important_notes.present?
+            %li= "Notes: #{racquet.important_notes}"

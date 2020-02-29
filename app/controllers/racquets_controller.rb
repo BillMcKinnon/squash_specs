@@ -21,6 +21,6 @@ class RacquetsController < ApplicationController
 
   private
   def racquet_params
-    params.require(:racquet).permit(:brand, :model, :weight, :balance, :important_notes)
+    params.require(:racquet).permit(:brand, :model, :weight, :balance, :important_notes, :photo)
   end
 end

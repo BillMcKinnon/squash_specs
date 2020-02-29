@@ -1,0 +1,18 @@
+/** General **/
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/** Racquets **/
+.racquet-card {
+  border: 2px solid;
+  border-radius: 50px;
+  text-align: center;
+  margin: 5px;
+
+  img {
+    width: 75%;
+    height: 75%;
+  }
+}
