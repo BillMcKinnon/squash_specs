@@ -6,7 +6,7 @@
     - @racquets.each do |racquet|
       .col-3.racquet-card
         %ul
-          <!-- = image_tag(racquet.photo, alt: "picture of #{racquet.photo}") -->
+          = image_tag(racquet.photo, alt: "picture of #{racquet.photo}")
           %li= racquet.brand
           %li= racquet.model
           %li= "Weight: #{racquet.weight} g"

@@ -8,4 +8,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
+    - flash.each do |message_type, message|
+      = content_tag(:p, message, id: "text_med", class: "alert alert-#{message_type}") 
+
     = yield

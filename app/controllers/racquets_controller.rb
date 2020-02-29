@@ -1,6 +1,6 @@
 class RacquetsController < ApplicationController
   def index
-    @racquets = Racquet.all
+    @racquets = Racquet.order(:brand, model: :asc)
   end
 
   def new
@@ -9,7 +9,7 @@ class RacquetsController < ApplicationController
 
   def create
     racquet = Racquet.new(racquet_params)
-    
+
     if racquet.save
       flash[:success] = "Racquet saved!"
     else
@@ -21,6 +21,6 @@ class RacquetsController < ApplicationController
 
   private
   def racquet_params
-    params.require(:racquet).permit(:brand, :model, :weight, :balance, :important_notes, :photo)
+    params.require(:racquet).permit(:brand, :model, :weight, :balance, :important_notes)
   end
 end
