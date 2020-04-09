@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -19,3 +20,14 @@ require("channels")
 
 import 'bootstrap'
 
+$(document).on('change', 'form[data-filters] select', function() {
+  //$(this).parents('form').find('select, input').prop('disabled', true)
+  var formData = {};
+  $(this).parent("form").serializeArray().map(function(x) {
+    formData[x.name] = x.value;
+  });
+  console.log(formData);
+  $.get('/racquets/filter_form', { query: formData }, function(html) {
+    console.log(html);
+  });
+});

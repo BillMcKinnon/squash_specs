@@ -1,6 +1,34 @@
 class RacquetsController < ApplicationController
   def index
     @racquets = Racquet.order(:brand, model: :asc)
+
+    if params[:brand].present?
+      @racquets = @racquets.where(brand: params[:brand])
+    end
+
+    if params[:balance].present?
+      @racquets = @racquets.where(balance: params[:balance])
+    end
+
+    if params[:weight].present?
+      @racquets = @racquets.where(weight: params[:weight])
+    end
+  end
+
+  def filter_form
+    @racquets = Racquet.order(:brand, model: :asc)
+
+    if params['query']['brand'].present?
+      @racquets = @racquets.where(brand: params[:query][:brand])
+    end
+
+    if params['query']['balance'].present?
+      @racquets = @racquets.where(balance: params[:query][:balance])
+    end
+
+    if params['query']['weight'].present?
+      @racquets = @racquets.where(weight: params[:query][:weight])
+    end
   end
 
   def new

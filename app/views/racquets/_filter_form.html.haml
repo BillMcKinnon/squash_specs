@@ -1,0 +1,8 @@
+= form_with url: root_path, as: :query, method: "get", local: true, data: { filters: true } do
+  = label_tag "Brand"
+  = select_tag("brand", options_for_select(@racquets.pluck(:brand).uniq, params.dig(:query, :brand)), include_blank: true, disabled: params.dig(:query, :brand).present? ? true : nil)
+  = label_tag "Balance"
+  = select_tag("balance", options_for_select(@racquets.pluck(:balance).uniq, params.dig(:query, :balance)), include_blank: true, disabled: params.dig(:query, :balance).present? ? true : nil)
+  = label_tag "Weight"
+  = select_tag("weight", options_for_select(@racquets.pluck(:weight).uniq.sort, params.dig(:query, :weight)), include_blank: true, disabled: params.dig(:query, :weight).present? ? true : nil)
+  = submit_tag "Filter"
