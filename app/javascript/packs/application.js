@@ -29,16 +29,18 @@ $(document).ready(function() {
   $('[data-filter]').click(function(e) {
     e.preventDefault();
     var queryParams = new URLSearchParams(window.location.search);
+    var queryArray = [];
 
     if($(this).data('state') === "inactive") {
       queryParams.append($(this).data('filter') + "[]", e.target.textContent);
       window.location = "?" + queryParams.toString();
     } else {
-      var queryArray = queryParams.getAll($(this).data('filter') + "[]");
-      var filteredArray = queryArray.filter(value => value !== e.target.textContent);
-      var filteredParams = new URLSearchParams();
+      for(var pair of queryParams.entries()) {
+        queryArray.push([pair[0], pair[1]]);
+      }
 
-      filteredArray.forEach(value => filteredParams.append($(this).data('filter') + "[]", value));    
+      var filteredArray = queryArray.filter(value => !value[1].includes(e.target.textContent));
+      var filteredParams = new URLSearchParams(filteredArray);
       window.location = "?" + filteredParams.toString();
     }
   });
