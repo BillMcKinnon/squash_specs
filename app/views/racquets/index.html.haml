@@ -1,20 +1,19 @@
-%h1 Squash Specs
-
-= link_to "New Racquet", new_racquet_path
-
-%p Filter Racquets
-
-= render partial: "filter_form"
-
-.container
+.container-fluid
+  .row.navbar
+    = link_to(image_tag("squash_specs_logo.png", alt: "Squash Specs logo"), root_path)
   .row
-    - @racquets.each do |racquet|
-      .col-3.racquet-card
-        %ul
-          = image_tag(racquet.photo, alt: "picture of #{racquet.photo}")
-          %li= racquet.brand
-          %li= racquet.model
-          %li= "Weight: #{racquet.weight} g"
-          %li= "Balance: #{racquet.balance}"
-          - if racquet.important_notes.present?
-            %li= "Notes: #{racquet.important_notes}"
+    .col.sidebar
+      = link_to "New Racquet", new_racquet_path
+      = render :partial => "filter_form"
+    .col-9.main-content
+      - @racquet_results.each do |racquet|
+        .col-10.racquet-card
+          %ul
+            = image_tag(racquet.photo, alt: "picture of #{racquet.photo}")
+            %li= racquet.brand
+            %li= racquet.model
+            %li= "Weight: #{racquet.weight} g"
+            %li= "Balance: #{racquet.balance}"
+            - if racquet.important_notes.present?
+              %li= "Notes: #{racquet.important_notes}"
+

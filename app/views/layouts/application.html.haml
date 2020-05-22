@@ -1,11 +1,11 @@
 !!!
 %html
   %head
-    %title SquashSpecs
+    %title Squash Specs
     = csrf_meta_tags 
     = csp_meta_tag
-    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
 
   %body
     - flash.each do |message_type, message|

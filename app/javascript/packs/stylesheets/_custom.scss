@@ -4,6 +4,26 @@ ul {
   padding: 0;
 }
 
+.navbar {
+  margin-bottom: 50px;
+  justify-content: center;
+
+  img {
+    width: 65%;
+  }
+}
+
+.sidebar {
+  h2 {
+    font-size: 3rem;
+  }
+
+  button {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+}
+
 /** Racquets **/
 .racquet-card {
   border: 2px solid;
@@ -14,5 +34,9 @@ ul {
   img {
     width: 75%;
     height: 75%;
+  }
+
+  li {
+    font-size: 2rem;
   }
 }

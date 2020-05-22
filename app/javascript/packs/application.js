@@ -20,14 +20,27 @@ require("jquery")
 
 import 'bootstrap'
 
-$(document).on('change', 'form[data-filters] select', function() {
-  //$(this).parents('form').find('select, input').prop('disabled', true)
-  var formData = {};
-  $(this).parent("form").serializeArray().map(function(x) {
-    formData[x.name] = x.value;
-  });
-  console.log(formData);
-  $.get('/racquets/filter_form', { query: formData }, function(html) {
-    console.log(html);
+// - User clicks filter button, get query params.
+// - If an inactive button is clicked, append the selected value to query
+// params, redirect the user using the new query params.
+// - If an active button is clicked, filter out the selected value, append the
+// remaining values to the query params and redirect the user accordingly.
+$(document).ready(function() {
+  $('[data-filter]').click(function(e) {
+    e.preventDefault();
+    var queryParams = new URLSearchParams(window.location.search);
+
+    if($(this).data('state') === "inactive") {
+      queryParams.append($(this).data('filter') + "[]", e.target.textContent);
+      window.location = "?" + queryParams.toString();
+    } else {
+      var queryArray = queryParams.getAll($(this).data('filter') + "[]");
+      var filteredArray = queryArray.filter(value => value !== e.target.textContent);
+      var filteredParams = new URLSearchParams();
+
+      filteredArray.forEach(value => filteredParams.append($(this).data('filter') + "[]", value));    
+      window.location = "?" + filteredParams.toString();
+    }
   });
 });
+

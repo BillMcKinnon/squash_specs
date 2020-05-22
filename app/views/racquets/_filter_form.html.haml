@@ -1,8 +1,27 @@
-= form_with url: root_path, as: :query, method: "get", local: true, data: { filters: true } do
-  = label_tag "Brand"
-  = select_tag("brand", options_for_select(@racquets.pluck(:brand).uniq, params.dig(:query, :brand)), include_blank: true, disabled: params.dig(:query, :brand).present? ? true : nil)
-  = label_tag "Balance"
-  = select_tag("balance", options_for_select(@racquets.pluck(:balance).uniq, params.dig(:query, :balance)), include_blank: true, disabled: params.dig(:query, :balance).present? ? true : nil)
-  = label_tag "Weight"
-  = select_tag("weight", options_for_select(@racquets.pluck(:weight).uniq.sort, params.dig(:query, :weight)), include_blank: true, disabled: params.dig(:query, :weight).present? ? true : nil)
-  = submit_tag "Filter"
+%h2 Brand
+%ul
+  - @racquets.pluck(:brand).uniq.each do |brand|
+    %li
+      - if params[:brand]&.include?(brand)
+        %button.active.btn.btn-outline-primary{ data: { filter: 'brand', state: 'active' } }= brand 
+      - else
+        %button.btn.btn-outline-primary{ data: { filter: 'brand', state: 'inactive' } }= brand 
+
+%h2 Balance
+%ul
+  - @racquets.pluck(:balance).uniq.each do |balance|
+    %li
+      - if params[:balance]&.include?(balance)
+        %button.active.btn.btn-outline-primary{ data: { filter: 'balance', state: 'active' } }= balance
+      - else
+        %button.btn.btn-outline-primary{ data: { filter: 'balance', state: 'inactive' } }= balance 
+
+%h2 Weight
+%ul
+  - @racquets.pluck(:weight).uniq.sort.each do |weight|
+    %li
+      - if params[:weight]&.include?(weight.to_s)
+        %button.active.btn.btn-outline-primary{ data: { filter: 'weight', state: 'active' } }= weight
+      - else
+        %button.btn.btn-outline-primary{ data: { filter: 'weight', state: 'inactive' } }= weight
+
