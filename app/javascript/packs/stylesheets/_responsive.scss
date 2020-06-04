@@ -1,0 +1,29 @@
+@media (max-width: 720px) {
+  body .btn-group-toggle {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .racquet-card-grid {
+    flex: 1 0 30%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .racquet-card {
+    max-width: 75%;
+    margin-left: 13%;
+  }
+
+  .racquet-card-grid {
+    max-width: 50%;
+    margin-left: 5px;
+  }
+
+  .racquet-img {
+    width: 50% !important;
+  }
+}
+
+

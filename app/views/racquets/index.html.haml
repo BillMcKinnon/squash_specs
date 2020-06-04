@@ -3,14 +3,14 @@
     = link_to(image_tag("squash_specs_logo.png", alt: "Squash Specs logo"), root_path)
   .row
     .col.sidebar
-      = link_to "New Racquet", new_racquet_path
       = render :partial => "filter_form"
+      = link_to "New Racquet", new_racquet_path
     .col-9.main-content
       - if @racquet_results.present?
         - @racquet_results.each do |racquet|
-          .col-10.racquet-card
+          .col.racquet-card
             %ul
-              = image_tag(racquet.photo, alt: "picture of #{racquet.photo}")
+              = image_tag(racquet.photo, { alt: "picture of #{racquet.photo}", class: "racquet-img" })
               %li= racquet.brand
               %li= racquet.model
               %li= "Weight: #{racquet.weight} g"

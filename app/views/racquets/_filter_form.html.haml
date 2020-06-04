@@ -1,3 +1,9 @@
+.btn-group.btn-group-toggle{ data: { toggle: 'buttons' } }
+  %label.btn.btn-secondary{ data: { layout: "column" } }
+    %input{ type: "radio", name: "racquet_view", id: "less", autocomplete: "off", data: { view: "column"  } } Column
+  %label.btn.btn-secondary{ data: { layout: "grid" } }
+    %input{ type: "radio", name: "racquet_view", id: "more", autocomplete: "off", data: { view: "grid" } } Grid
+
 %h2 Brand
 %ul
   - @racquets.pluck(:brand).uniq.each do |brand|
