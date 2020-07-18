@@ -21,34 +21,13 @@ require("jquery")
 import 'bootstrap'
 
 $(document).ready(function() {
-  // Toggle button setting to persist after page refresh.
-
-  // Toggle racquet card layout.
-  $('[data-layout="grid"]').click(function(e) {
-    e.preventDefault();
-
-    $('[data-layout="column"]').removeClass("active");
-    $(this).addClass("active");
-    $('.main-content').addClass('main-content-grid');
-    $('.racquet-card').addClass('racquet-card-grid');
-    $('.racquet-img').addClass('racquet-img-grid');
-  });
-
-  $('[data-layout="column"]').click(function(e) {
-    e.preventDefault();
-
-    $('[data-layout="grid"]').removeClass("active");
-    $(this).addClass("active");
-    $('.main-content').removeClass('main-content-grid');
-    $('.racquet-card').removeClass('racquet-card-grid');
-    $('.racquet-img').removeClass('racquet-img-grid');
-  });
 
   // - User clicks filter button, get query params.
   // - If an inactive button is clicked, append the selected value to query
   // params, redirect the user using the new query params.
   // - If an active button is clicked, filter out the selected value, append the
   // remaining values to the query params and redirect the user accordingly.
+
   $('[data-filter]').click(function(e) {
     e.preventDefault();
     var queryParams = new URLSearchParams(window.location.search);

@@ -5,25 +5,36 @@
 }
 
 @media (min-width: 1024px) {
-  .racquet-card-grid {
-    flex: 1 0 30%;
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .racquet-card {
+    flex: 1 0 48%;
+    max-height: 48%;
+    max-width: 50%;
+  }
+
+  .racquet-img {
+    margin-top: 10px;
   }
 }
 
 @media (min-width: 1280px) {
-  .racquet-card {
-    max-width: 75%;
-    margin-left: 13%;
-  }
-
-  .racquet-card-grid {
-    max-width: 50%;
+  .racquet-card{
     margin-left: 5px;
-  }
-
-  .racquet-img {
-    width: 50% !important;
   }
 }
 
+@media (min-width: 1600px) {
+  .sidebar {
+    flex-grow: 0.5;
+  }
 
+  .racquet-card {
+    max-width: 30%;
+    max-height: 60%;
+  }
+}

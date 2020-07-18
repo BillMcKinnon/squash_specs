@@ -8,8 +8,11 @@ ul {
   padding: 0;
 }
 
+.navbar, .sidebar {
+  background: #F7F7F7;
+}
+
 .navbar {
-  border-bottom: 1px solid grey;
   justify-content: center;
 
   a {
@@ -23,7 +26,6 @@ ul {
 }
 
 .sidebar {
-  border-right: 1px solid grey;
   width: 10%;
 
   .btn-group-toggle {
@@ -52,10 +54,9 @@ ul {
 
 /** Racquets **/
 .racquet-card {
-  border: 1px solid grey;
-  border-radius: 50px;
+  border: 2px solid #E4E4E4;
   text-align: center;
-  margin: 20px 5px;
+  margin: 20px 5px 0;
 
   img {
     width: 75%;
@@ -65,21 +66,5 @@ ul {
   li {
     font-size: 1rem;
   }
-}
-
-.main-content-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-    
-.racquet-card-grid {
-  flex: 1 0 48%;
-  max-height: 40%;
-  max-width: 50%;
-}
-
-.racquet-img-grid {
-  margin-top: 10px;
 }
 
