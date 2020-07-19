@@ -1,9 +1,3 @@
-@media (max-width: 720px) {
-  body .btn-group-toggle {
-    display: none !important;
-  }
-}
-
 @media (min-width: 1024px) {
   .main-content {
     display: flex;
@@ -19,6 +13,10 @@
 
   .racquet-img {
     margin-top: 10px;
+  }
+
+  .pagination {
+    align-self: center;
   }
 }
 

@@ -1,4 +1,5 @@
 class Racquet < ApplicationRecord
+  max_paginates_per 20
   include Filterable
   validates_uniqueness_of :model, case_sensitive: false
   validates_presence_of :brand, :model, :weight

@@ -1,6 +1,6 @@
 class RacquetsController < ApplicationController
   def index
-    @racquet_results = Racquet.filter(params.slice(:brand, :balance, :weight))
+    @racquet_results = Racquet.filter(params.slice(:brand, :balance, :weight)).page(params[:page])
     @racquets = Racquet.all
   end
 

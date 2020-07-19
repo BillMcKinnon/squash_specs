@@ -17,6 +17,7 @@
               %li= "Balance: #{racquet.balance}"
               - if racquet.important_notes.present?
                 %li= "Notes: #{racquet.important_notes}"
+        = paginate @racquet_results        
       - else
         %h2 No results match your selection.
 
