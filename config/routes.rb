@@ -3,3 +3,4 @@ Rails.application.routes.draw do
   resources :racquets, only: [:create, :new]
   get 'racquets/filter_form' => 'racquets#filter_form'
 end
+

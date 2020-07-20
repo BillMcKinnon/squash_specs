@@ -4,7 +4,6 @@
   .row
     .col.sidebar
       = render :partial => "filter_form"
-      = link_to "New Racquet", new_racquet_path
     .col-9.main-content
       - if @racquet_results.present?
         - @racquet_results.each do |racquet|
