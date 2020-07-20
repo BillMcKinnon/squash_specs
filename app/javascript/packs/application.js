@@ -20,7 +20,7 @@ require("jquery")
 
 import 'bootstrap'
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
   // - User clicks filter button, get query params.
   // - If an inactive button is clicked, append the selected value to query
@@ -32,6 +32,8 @@ $(document).ready(function() {
     e.preventDefault();
     var queryParams = new URLSearchParams(window.location.search);
     var queryArray = [];
+
+    queryParams.delete('page');
 
     if($(this).data('state') === "inactive") {
       queryParams.append($(this).data('filter') + "[]", e.target.textContent);
