@@ -1,6 +1,6 @@
 .container-fluid
   .row.navbar
-    = link_to(image_tag("squash_specs_logo.png", alt: "Squash Specs logo"), root_path)
+    = link_to(image_tag("squash_specs_logo.jpg", alt: "Squash Specs logo"), root_path)
   .row
     .col.sidebar
       = render :partial => "filter_form"
@@ -9,7 +9,7 @@
         - @racquet_results.each do |racquet|
           .col.racquet-card
             %ul
-              = image_tag(racquet.photo, { alt: "picture of #{racquet.photo}", class: "racquet-img" })
+              = image_tag(racquet.photo + ".jpg", { alt: "picture of #{racquet.photo}", class: "racquet-img" })
               %li= racquet.brand
               %li= racquet.model
               %li= "Weight: #{racquet.weight} g"
