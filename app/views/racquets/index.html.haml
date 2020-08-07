@@ -10,12 +10,19 @@
           .col.racquet-card
             %ul
               = image_tag(racquet.photo + ".jpg", { alt: "picture of #{racquet.photo}", class: "racquet-img" })
-              %li= racquet.brand
-              %li= racquet.model
-              %li= "Weight: #{racquet.weight} g"
-              %li= "Balance: #{racquet.balance}"
+              %hr
+              %li.racquet-brand= racquet.brand
+              %li.racquet-model= racquet.model
+              %li
+                %i.fas.fa-balance-scale
+                = racquet.balance
+              %li 
+                %i.fas.fa-weight-hanging
+                = "#{racquet.weight} g"
               - if racquet.important_notes.present?
-                %li= "Notes: #{racquet.important_notes}"
+                %li
+                  %i.far.fa-sticky-note
+                  = racquet.important_notes
         = paginate @racquet_results        
       - else
         %h2 No results match your selection.

@@ -1,14 +1,40 @@
 @media (min-width: 1024px) {
+  .navbar a {
+    margin-left: -78px;
+    width: 500px;
+  }
+
+  .sidebar {
+    margin-left: 25px;
+
+    h2 {
+      font-size: 1.5rem;
+    } 
+
+    button {
+      font-size: 1rem !important;
+    }
+  }
+
   .main-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-right: 40px;
   }
 
   .racquet-card {
     flex: 1 0 48%;
-    max-height: 48%;
+    max-height: 60%;
     max-width: 50%;
+
+    .racquet-brand {
+      font-size: 1.1rem;
+    }
+
+    li {
+      font-size: 1rem;
+    }
   }
 
   .pagination {
@@ -26,9 +52,16 @@
   .sidebar {
     flex-grow: 0.5;
   }
+  
+  .main-content {
+    margin-left: auto;
+  }
 
   .racquet-card {
     max-width: 30%;
     max-height: 60%;
   }
+}
+
+@media (min-width: 1920px) {
 }
