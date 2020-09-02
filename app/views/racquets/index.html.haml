@@ -9,7 +9,10 @@
         - @racquet_results.each do |racquet|
           .col.racquet-card
             %ul
-              = image_tag(racquet.photo + ".jpg", { alt: "picture of #{racquet.photo}", class: "racquet-img" })
+              - begin
+                = image_tag(racquet.photo + ".jpg", { alt: "picture of #{racquet.photo}", class: "racquet-img" })
+              - rescue Sprockets::Rails::Helper::AssetNotFound
+                = image_tag("default.jpg", { alt: "default racquet photo", class: "racquet-img" })
               %hr
               %li.racquet-brand= racquet.brand
               %li.racquet-model= racquet.model
