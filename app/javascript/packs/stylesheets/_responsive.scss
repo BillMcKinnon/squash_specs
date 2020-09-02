@@ -24,7 +24,9 @@
   }
 
   .racquet-card {
+    box-shadow: -1px 0px 18px -15px;
     flex: 1 0 48%;
+    margin-left: 8px;
     max-height: 60%;
     max-width: 50%;
 
@@ -53,7 +55,8 @@
 
 @media (min-width: 1280px) {
   .racquet-card{
-    margin-left: 5px;
+    box-shadow: -1px 0px 20px -15px;
+    margin-left: 30px;
   }
 }
 
