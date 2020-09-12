@@ -1,6 +1,6 @@
 %h2 Brand
 %ul
-  - @racquets.pluck(:brand).uniq.each do |brand|
+  - @racquets.pluck(:brand).uniq.sort.each do |brand|
     %li
       - if params[:brand]&.include?(brand)
         %button.active.btn.btn-outline-primary{ data: { filter: 'brand', state: 'active' } }= brand 

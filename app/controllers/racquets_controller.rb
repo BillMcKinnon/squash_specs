@@ -2,7 +2,7 @@ class RacquetsController < ApplicationController
   http_basic_authenticate_with name: ENV["NEW_RACQUET_USERNAME"], password: ENV["NEW_RACQUET_PASSWORD"], only: :new
 
   def index
-    @racquet_results = Racquet.filter(params.slice(:brand, :balance, :weight)).page(params[:page])
+    @racquet_results = Racquet.filter(params.slice(:brand, :balance, :weight)).order(:brand, :model).page(params[:page])
     @racquets = Racquet.all
   end
 
